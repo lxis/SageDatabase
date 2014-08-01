@@ -6,8 +6,7 @@ import java.util.List;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.Dao;
 import com.sage.database.Contact;
-import com.sage.database.DataHelper;
-import com.sage.database.MyContact;
+import com.sage.database.*;
 import com.sage.database.R;
 
 import android.os.Bundle;
@@ -44,20 +43,20 @@ public class MainActivity extends Activity
 
 	private void MySelect(DataHelper dataHelper) throws SQLException
 	{
-		Dao<MyContact, Integer> contactDao = dataHelper.getDao(MyContact.class);
-		List<MyContact> contactLists = contactDao.queryForAll();
+		MyContacts myContacts =  new MyContacts(this);
+		myContacts.Load();			
 		int i = 0;
 		int ii = i;
 	}
 
 	private void MyInsert(DataHelper dataHelper) throws SQLException
-	{
+	{		
+		MyContacts myContacts =  new MyContacts(this);
+		myContacts.Load();		
 		MyContact contact = new MyContact();
-		contact.Name = "my name";
-		contact.Phone = "186";
-
-		Dao<MyContact, Integer> contactDao = dataHelper.getDao(MyContact.class);
-		contactDao.create(contact);
+		contact.setName("my name");
+		myContacts.Items.add(contact);
+		myContacts.Save();
 	}
 
 	private void Database() throws SQLException
