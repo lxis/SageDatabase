@@ -14,59 +14,46 @@ import com.sage.database.facade.Database;
 
 import example.MyContact;
 
-public class DataHelper extends OrmLiteSqliteOpenHelper
-{
+public class DataHelper extends OrmLiteSqliteOpenHelper {
 	private static final String DATABASE_NAME = "helloAndroid.db";
 
-	private static final int DATABASE_VERSION = 1;	
+	private static final int DATABASE_VERSION = 1;
 
-	public DataHelper(Context context)
-	{
+	public DataHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
 		classes = Database.Classes;
-		if(classes.size() == 0)
+		if (classes.size() == 0)
 			Database.init(classes);
 	}
-	
+
 	ArrayList<Class> classes = new ArrayList<Class>();
-	
 
 	@Override
-	public void onCreate(SQLiteDatabase arg0, ConnectionSource connectionSource)
-	{
-		try
-		{
-			for(Class classType : classes )			
-				TableUtils.createTableIfNotExists(connectionSource, classType);						
-		}
-		catch (SQLException e)
-		{
+	public void onCreate(SQLiteDatabase arg0, ConnectionSource connectionSource) {
+		try {
+			for (Class classType : classes)
+				TableUtils.createTableIfNotExists(connectionSource, classType);
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
 	@Override
-	public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource, int arg2, int arg3)
-	{
-		try
-		{			
-			for(Class classType : classes )
-				TableUtils.dropTable(connectionSource, classType, true);					
+	public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource,
+			int arg2, int arg3) {
+		try {
+			for (Class classType : classes)
+				TableUtils.dropTable(connectionSource, classType, true);
 			onCreate(db, connectionSource);
-		}
-		catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
 	@Override
-	public void close()
-	{
+	public void close() {
 		super.close();
 	}
-
-
 
 }
