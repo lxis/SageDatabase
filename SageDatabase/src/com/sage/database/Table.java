@@ -10,7 +10,7 @@ import com.j256.ormlite.dao.Dao;
 
 public class Table<T extends BaseItem>
 {
-	public ArrayList<T> removedItems = new ArrayList<T>();
+	private ArrayList<T> removedItems = new ArrayList<T>();
 
 	public ObserverbleCollection<T> Items = new ObserverbleCollection<T>();
 

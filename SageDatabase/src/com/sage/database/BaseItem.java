@@ -7,6 +7,5 @@ public class BaseItem
 	public void Notify()
 	{
 		isChanged = true;
-	}
-	
+	}	
 }
