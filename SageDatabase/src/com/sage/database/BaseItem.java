@@ -1,7 +1,5 @@
 package com.sage.database;
 
-import com.j256.ormlite.field.DatabaseField;
-
 public class BaseItem
 {
 	public boolean isNew = false;
@@ -11,6 +9,4 @@ public class BaseItem
 		isChanged = true;
 	}
 	
-	@DatabaseField(generatedId = true)
-	public int id;
 }

@@ -52,10 +52,22 @@ public class MainActivity extends Activity
 	private void MyInsert(DataHelper dataHelper) throws SQLException
 	{		
 		MyContacts myContacts =  new MyContacts(this);
-		myContacts.Load();		
+		
+		//插入
 		MyContact contact = new MyContact();
 		contact.setName("my name");
 		myContacts.Items.add(contact);
+		
+		//更新
+		myContacts.Items.get(0).setName("sage");		
+		
+		//删除
+		myContacts.Items.remove(0);
+		
+		//查询
+		myContacts.Load();
+		
+		//全部执行(增删改)
 		myContacts.Save();
 	}
 

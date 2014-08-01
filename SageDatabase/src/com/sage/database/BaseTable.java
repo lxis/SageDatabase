@@ -1,9 +1,7 @@
 package com.sage.database;
 
-import java.lang.reflect.Method;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import android.content.Context;
 
