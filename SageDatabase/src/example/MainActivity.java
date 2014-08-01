@@ -1,13 +1,9 @@
 package example;
 
 import java.sql.SQLException;
-import java.util.List;
 
-import com.j256.ormlite.android.apptools.OpenHelperManager;
-import com.j256.ormlite.dao.Dao;
-import com.sage.database.Contact;
 import com.sage.database.*;
-import com.sage.database.R;
+import com.sage.database.facade.Table;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -15,7 +11,6 @@ import android.view.Menu;
 
 public class MainActivity extends Activity
 {
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -23,8 +18,7 @@ public class MainActivity extends Activity
 		setContentView(R.layout.activity_main);
 
 		try
-		{
-			//Database();
+		{			
 			MyDatabase();
 		}
 		catch (Exception e)
@@ -55,31 +49,6 @@ public class MainActivity extends Activity
 		myContacts.Save();
 	}
 
-	private void Database() throws SQLException
-	{
-		DataHelper dataHelper = OpenHelperManager.getHelper(this, DataHelper.class);
-		Insert(dataHelper);
-		Select(dataHelper);
-	}
-
-	private void Insert(DataHelper dataHelper) throws SQLException
-	{
-		Contact contact = new Contact();
-		contact.Name = "my name";
-		contact.Phone = "186";
-
-		Dao<Contact, Integer> contactDao = dataHelper.getDao(Contact.class);
-		contactDao.create(contact);
-	}
-
-	private void Select(DataHelper dataHelper) throws SQLException
-	{
-		Dao<Contact, Integer> contactDao = dataHelper.getDao(Contact.class);
-		List<Contact> contactLists = contactDao.queryForAll();
-		int i = 0;
-		int ii = i;
-	}
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
@@ -88,5 +57,4 @@ public class MainActivity extends Activity
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-
 }
