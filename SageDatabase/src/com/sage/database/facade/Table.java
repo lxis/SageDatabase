@@ -45,7 +45,7 @@ public class Table<T extends BaseItem>
 		};
 	}
 
-	public void Load() throws SQLException
+	public void load() throws SQLException
 	{
 		if (Items.size() == 0)
 			Items.addAll(dao.queryForAll());
@@ -58,7 +58,7 @@ public class Table<T extends BaseItem>
 //	
 //	}
 
-	public void Save() throws SQLException
+	public void save() throws SQLException
 	{
 		for (T item : Items)
 		{

@@ -5,7 +5,7 @@ public class BaseItem
 	public boolean isNew = false;
 	public boolean isChanged = false;
 
-	public void Notify()
+	public void notifyChanged()
 	{
 		isChanged = true;
 	}

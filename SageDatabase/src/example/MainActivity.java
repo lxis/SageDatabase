@@ -19,7 +19,7 @@ public class MainActivity extends Activity
 
 		try
 		{			
-			MyDatabase();
+			myDatabase();
 		}
 		catch (Exception e)
 		{
@@ -27,7 +27,7 @@ public class MainActivity extends Activity
 		}
 	}
 
-	private void MyDatabase() throws SQLException
+	private void myDatabase() throws SQLException
 	{		
 		Table<MyContact> myContacts =  new Table<MyContact>(MyContact.class, this);
 		
@@ -43,10 +43,10 @@ public class MainActivity extends Activity
 		myContacts.Items.remove(0);
 		
 		//查询
-		myContacts.Load();
+		myContacts.load();
 		
 		//全部执行(增删改)
-		myContacts.Save();
+		myContacts.save();
 	}
 
 	@Override

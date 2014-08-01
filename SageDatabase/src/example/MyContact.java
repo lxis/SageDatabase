@@ -16,7 +16,7 @@ public class MyContact extends BaseItem
 	public void setName(String name)
 	{
 		this.Name = name;
-		Notify();
+		notifyChanged();
 	}
 
 	public MyContact()
