@@ -43,7 +43,7 @@ public class MainActivity extends Activity
 
 	private void MySelect(DataHelper dataHelper) throws SQLException
 	{
-		MyContacts myContacts =  new MyContacts(this);
+		Table<MyContact> myContacts =  new Table<MyContact>(MyContact.class, this);
 		myContacts.Load();			
 		int i = 0;
 		int ii = i;
@@ -51,7 +51,7 @@ public class MainActivity extends Activity
 
 	private void MyInsert(DataHelper dataHelper) throws SQLException
 	{		
-		MyContacts myContacts =  new MyContacts(this);
+		Table<MyContact> myContacts =  new Table<MyContact>(MyContact.class, this);
 		
 		//≤Â»Î
 		MyContact contact = new MyContact();
