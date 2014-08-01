@@ -34,22 +34,6 @@ public class MainActivity extends Activity
 	}
 
 	private void MyDatabase() throws SQLException
-	{
-		DataHelper dataHelper = OpenHelperManager.getHelper(this, DataHelper.class);
-
-		MyInsert(dataHelper);
-		MySelect(dataHelper);
-	}
-
-	private void MySelect(DataHelper dataHelper) throws SQLException
-	{
-		Table<MyContact> myContacts =  new Table<MyContact>(MyContact.class, this);
-		myContacts.Load();			
-		int i = 0;
-		int ii = i;
-	}
-
-	private void MyInsert(DataHelper dataHelper) throws SQLException
 	{		
 		Table<MyContact> myContacts =  new Table<MyContact>(MyContact.class, this);
 		
